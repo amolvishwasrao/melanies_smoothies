@@ -13,8 +13,9 @@ st.write(
 )
 cnx=st.connection("snowflake")
 session = cnx.session();
-mydataframe=session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col("FRUIT_NAME"))
-#st.dataframe(data=mydataframe,use_container_width=True)
+mydataframe=session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col("FRUIT_NAME"),col("SEARCH_ON"))
+st.dataframe(data=mydataframe,use_container_width=True)
+st.stop()
 ingredients_list=st.multiselect('Choose Upto 5 Fruit:',mydataframe,max_selections=5)
 if ingredients_list:
     st.write(ingredients_list);
