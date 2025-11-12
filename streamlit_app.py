@@ -16,7 +16,7 @@ cnx=st.connection("snowflake")
 session = cnx.session();
 mydataframe=session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col("FRUIT_NAME"),col("SEARCH_ON"))
 pd_df=mydataframe.to_pandas()
-#st.dataframe(pd_df)
+st.dataframe(pd_df)
 #st.stop()
 #st.dataframe(data=mydataframe,use_container_width=True)
 #st.stop()
